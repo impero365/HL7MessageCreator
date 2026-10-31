@@ -61,7 +61,7 @@ HL7MessageCreator.bat
 
 This will:
 
-1. Install Python 3.11 if not already present (using Windows Package Manager)
+1. Install Python 3.12 if not already present (using Windows Package Manager)
 2. Create a virtual environment in `.venv`
 3. Install the packages listed in `requirements.txt`
 4. Launch the application
@@ -86,7 +86,7 @@ Use this on Linux or macOS, or on Windows when you do not want the batch file to
 
    ```bash
    # Windows
-   py -3.11 -m venv .venv
+   py -3.12 -m venv .venv
    .venv\Scripts\activate
 
    # macOS/Linux

@@ -1,27 +1,27 @@
 @echo off
 cd /d "%~dp0"
 
-REM --- Check if Python 3.11 is available ---
-echo Checking for Python 3.11...
-py -3.11 --version >nul 2>nul
+REM --- Check if Python 3.12 is available ---
+echo Checking for Python 3.12...
+py -3.12 --version >nul 2>nul
 if %errorlevel% neq 0 (
-    echo Python 3.11 not found. Attempting to install...
-    winget install --silent --accept-package-agreements --accept-source-agreements Python.Python.3.11
+    echo Python 3.12 not found. Attempting to install...
+    winget install --silent --accept-package-agreements --accept-source-agreements Python.Python.3.12
     echo.
-    echo Python 3.11 has been installed.
+    echo Python 3.12 has been installed.
     echo Please close this window and run the script again to complete setup.
     pause
     exit /b
 ) else (
-    echo Python 3.11 is available.
+    echo Python 3.12 is available.
 )
 
 REM --- Remove old/broken virtual environment if it exists ---
 if exist ".venv" (
     echo Checking virtual environment...
-    .venv\Scripts\python.exe --version >nul 2>&1
+    .venv\Scripts\python.exe --version 2>nul | findstr /C:"Python 3.12" >nul
     if errorlevel 1 (
-        echo Virtual environment appears broken. Removing...
+        echo Virtual environment is missing or is not Python 3.12. Removing...
         rmdir /s /q .venv
         if exist ".venv" (
             echo WARNING: Could not remove .venv folder. Please delete it manually and run again.
@@ -37,7 +37,7 @@ if exist ".venv" (
 REM --- Create virtual environment if not already created ---
 if not exist ".venv" (
     echo Creating virtual environment...
-    py -3.11 -m venv .venv
+    py -3.12 -m venv .venv
     if %errorlevel% neq 0 (
         echo Failed to create virtual environment!
         pause
