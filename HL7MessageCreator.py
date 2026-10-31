@@ -2328,6 +2328,10 @@ class HL7MessageApp(QMainWindow):
 
 
 def main():
+    if sys.platform == "win32":
+        # Windows scales point sizes by the monitor DPI. WSL draws this app at 96 DPI,
+        # so the same 12pt font looks larger on Windows. Match that 96 DPI size.
+        QApplication.setAttribute(Qt.ApplicationAttribute.AA_Use96Dpi, True)
     app = QApplication(sys.argv)
     app.setStyle("Fusion")
     app.setFont(QFont("Arial", 12))
