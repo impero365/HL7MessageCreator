@@ -61,13 +61,7 @@ python -m pip install --upgrade pip --quiet
 
 REM --- Install required packages inside venv ---
 echo Installing required packages...
-python -m pip install ^
-    hl7apy==1.3.5 ^
-    pandas==2.3.2 ^
-    numpy==2.2.1 ^
-    python-dateutil==2.9.0.post0 ^
-    pytz==2025.2 ^
-    --quiet
+python -m pip install -r requirements.txt --quiet
 
 if %errorlevel% neq 0 (
     echo Failed to install required packages!
@@ -75,15 +69,8 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-REM --- Optional: Install PyInstaller for building executables (comment out if not needed) ---
-REM echo Installing PyInstaller (for building executables)...
-REM python -m pip install ^
-REM     pyinstaller==6.1.5 ^
-REM     altgraph==0.17.4 ^
-REM     pefile==2023.2.7 ^
-REM     pyinstaller-hooks-contrib==2025.8 ^
-REM     pywin32-ctypes==0.2.3 ^
-REM     --quiet
+REM --- Optional: install the dev tools, including PyInstaller ---
+REM python -m pip install -r requirements-dev.txt --quiet
 
 echo.
 echo ========================================

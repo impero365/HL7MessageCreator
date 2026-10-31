@@ -62,28 +62,31 @@ HL7MessageCreator.bat
 This will:
 
 1. Install Python 3.11 if not already present (using Windows Package Manager)
-2. Create a virtual environment
-3. Install all required dependencies
+2. Create a virtual environment in `.venv`
+3. Install the packages listed in `requirements.txt`
 4. Launch the application
+
+Do not copy or commit `.venv`. If that folder is broken, delete it and run the batch file again.
 
 ### Manual Installation
 
-If you prefer manual setup or are on a non-Windows platform:
+Use this on Linux or macOS, or on Windows when you do not want the batch file to install Python for you.
 
 #### Prerequisites
 
-- Python 3.11 or higher
-- pip (Python package installer)
+- Python 3.11 or 3.12
+- pip
+- On Debian or Ubuntu, the `python3-venv` package: `sudo apt install python3-venv`
 
 #### Steps
 
 1. **Clone or download this repository**
 
-2. **Create a virtual environment** (recommended):
+2. **Create a virtual environment** in the project directory. Do not copy or commit `.venv`. If an older environment is broken, delete the folder and create it again.
 
    ```bash
    # Windows
-   python -m venv .venv
+   py -3.11 -m venv .venv
    .venv\Scripts\activate
 
    # macOS/Linux
@@ -91,11 +94,11 @@ If you prefer manual setup or are on a non-Windows platform:
    source .venv/bin/activate
    ```
 
-3. **Install dependencies**:
+3. **Install dependencies** with the environment's own pip:
 
    ```bash
-   pip install --upgrade pip
-   pip install hl7apy==1.3.5 pandas==2.3.2 numpy python-dateutil pytz
+   python -m pip install --upgrade pip
+   python -m pip install -r requirements.txt
    ```
 
 4. **Run the application**:
@@ -196,6 +199,8 @@ HL7MessageCreator/
 ├── HL7MessageCreatorFileView24Allergies.py  # Main application (current version)
 ├── HL7MessageCreatorFileView20.py           # Previous version (with environment modes)
 ├── HL7MessageCreator.bat                     # Automated setup and launcher
+├── requirements.txt                          # Pinned runtime packages
+├── requirements-dev.txt                      # Runtime packages plus PyInstaller
 ├── HL7MessageCreatorFileView20.spec         # PyInstaller build configuration
 ├── CLAUDE.md                                 # Developer documentation for Claude Code
 ├── README.md                                 # This file
@@ -215,17 +220,17 @@ HL7MessageCreator/
 
 ## Dependencies
 
-Core dependencies are automatically installed by `HL7MessageCreator.bat`:
+Runtime packages are pinned in `requirements.txt`. The batch file and the manual steps both install that file.
 
-- **Python 3.11**: Application runtime
-- **tkinter**: GUI framework (included with Python)
+- **Python 3.11 or 3.12**: Application runtime
+- **PyQt6 6.12.0**: GUI framework
 - **hl7apy 1.3.5**: HL7 message parsing and validation
 - **pandas 2.3.2**: CSV data handling and manipulation
-- **numpy**: Numerical operations support
-- **python-dateutil**: Date/time parsing
-- **pytz**: Timezone handling
+- **numpy 2.2.1**: Numerical operations support
+- **python-dateutil 2.9.0.post0**: Date/time parsing
+- **pytz 2025.2**: Timezone handling
 
-Development dependencies (for building executables):
+Development packages are in `requirements-dev.txt`:
 
 - **PyInstaller 6.1.5**: Packaging Python apps as executables
 
@@ -276,10 +281,10 @@ Allergy database with columns:
 
 To create a standalone Windows executable:
 
-1. **Install PyInstaller** (if not already installed):
+1. **Install the development packages** inside the virtual environment:
 
    ```bash
-   pip install pyinstaller==6.1.5
+   python -m pip install -r requirements-dev.txt
    ```
 
 2. **Build using the spec file**:
@@ -337,7 +342,7 @@ Generated HL7 messages include:
 
 ### Application won't start
 
-- Ensure Python 3.11+ is installed: `python --version`
+- Ensure Python 3.11 or 3.12 is installed: `python --version`
 - Check that all CSV files are present in the script directory
 - Try running manually: `python HL7MessageCreatorFileView24Allergies.py`
 
