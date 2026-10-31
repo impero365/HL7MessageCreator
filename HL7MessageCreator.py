@@ -2340,6 +2340,7 @@ def main():
     palette.setColor(QPalette.ColorRole.WindowText, QColor(TEXT_COLOR))
     palette.setColor(QPalette.ColorRole.Base, QColor(PREVIEW_BG))
     palette.setColor(QPalette.ColorRole.Text, QColor(TEXT_COLOR))
+    palette.setColor(QPalette.ColorRole.PlaceholderText, QColor("#B0B0B8"))
     palette.setColor(QPalette.ColorRole.Button, QColor(BUTTON_BG))
     palette.setColor(QPalette.ColorRole.ButtonText, QColor(TEXT_COLOR))
     palette.setColor(QPalette.ColorRole.Highlight, QColor(SELECTED_MATCH_BG))
