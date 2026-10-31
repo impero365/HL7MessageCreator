@@ -104,7 +104,7 @@ Use this on Linux or macOS, or on Windows when you do not want the batch file to
 4. **Run the application**:
 
    ```bash
-   python HL7MessageCreatorFileView24Allergies.py
+   python HL7MessageCreator.py
    ```
 
 ## Usage
@@ -196,12 +196,11 @@ Use this on Linux or macOS, or on Windows when you do not want the batch file to
 
 ```text
 HL7MessageCreator/
-├── HL7MessageCreatorFileView24Allergies.py  # Main application (current version)
-├── HL7MessageCreatorFileView20.py           # Previous version (with environment modes)
+├── HL7MessageCreator.py                      # Main application
 ├── HL7MessageCreator.bat                     # Automated setup and launcher
 ├── requirements.txt                          # Pinned runtime packages
 ├── requirements-dev.txt                      # Runtime packages plus PyInstaller
-├── HL7MessageCreatorFileView20.spec         # PyInstaller build configuration
+├── HL7MessageCreator.spec                    # PyInstaller build configuration
 ├── CLAUDE.md                                 # Developer documentation for Claude Code
 ├── README.md                                 # This file
 │
@@ -290,7 +289,7 @@ To create a standalone Windows executable:
 2. **Build using the spec file**:
 
    ```bash
-   pyinstaller HL7MessageCreatorFileView20.spec
+   pyinstaller HL7MessageCreator.spec
    ```
 
 3. **Locate the executable**:
@@ -344,7 +343,7 @@ Generated HL7 messages include:
 
 - Ensure Python 3.11 or 3.12 is installed: `python --version`
 - Check that all CSV files are present in the script directory
-- Try running manually: `python HL7MessageCreatorFileView24Allergies.py`
+- Try running manually: `python HL7MessageCreator.py`
 
 ### "Failed to load CSV files" error
 
