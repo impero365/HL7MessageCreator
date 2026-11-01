@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['HL7MessageCreatorFileView20.py'],
+    ['HL7MessageCreator.py'],
     pathex=[],
     binaries=[],
     datas=[('procedures.csv', '.'), ('staff_names.csv', '.'), ('surgeon_names.csv', '.'), ('patient_names.csv', '.')],
@@ -22,7 +22,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='HL7MessageCreatorFileView20',
+    name='HL7MessageCreator',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

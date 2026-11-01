@@ -294,7 +294,7 @@ To create a standalone Windows executable:
 
 3. **Locate the executable**:
 
-   - Built executable: `dist/HL7MessageCreatorFileView20.exe`
+   - Built executable: `dist/HL7MessageCreator.exe`
    - Ensure CSV data files are in the same directory as the executable
 
 ## HL7 Message Types
