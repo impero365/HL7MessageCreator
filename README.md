@@ -74,7 +74,7 @@ Use this on Linux or macOS, or on Windows when you do not want the batch file to
 
 #### Prerequisites
 
-- Python 3.11 or 3.12
+- Python 3.12 or 3.14
 - pip
 - On Debian or Ubuntu, the `python3-venv` package: `sudo apt install python3-venv`
 
@@ -221,17 +221,17 @@ HL7MessageCreator/
 
 Runtime packages are pinned in `requirements.txt`. The batch file and the manual steps both install that file.
 
-- **Python 3.11 or 3.12**: Application runtime
+- **Python 3.12 or 3.14**: Application runtime
 - **PyQt6 6.12.0**: GUI framework
 - **hl7apy 1.3.5**: HL7 message parsing and validation
-- **pandas 2.3.2**: CSV data handling and manipulation
-- **numpy 2.2.1**: Numerical operations support
-- **python-dateutil 2.9.0.post0**: Date/time parsing
-- **pytz 2025.2**: Timezone handling
+- **pandas 3.1.0**: CSV data handling and manipulation
+- **numpy 2.5.4**: Numerical operations support
+- **python-dateutil 3.0.0**: Date/time parsing
+- **pytz 2026.6**: Timezone handling
 
 Development packages are in `requirements-dev.txt`:
 
-- **PyInstaller 6.1.5**: Packaging Python apps as executables
+- **PyInstaller 6.22.3**: Packaging Python apps as executables
 
 ## Data Files
 
@@ -341,7 +341,7 @@ Generated HL7 messages include:
 
 ### Application won't start
 
-- Ensure Python 3.11 or 3.12 is installed: `python --version`
+- Ensure Python 3.12 or 3.14 is installed: `python --version`
 - Check that all CSV files are present in the script directory
 - Try running manually: `python HL7MessageCreator.py`
 
